@@ -1,5 +1,4 @@
 import { test, expect, type Page } from '@playwright/test';
-import { beforeEach } from 'node:test';
 
 test.beforeEach(async ({ page }) => {
     await page.goto('https://nicknguyense-web-automation-api-testing.onrender.com/')
@@ -60,6 +59,7 @@ test.describe('Learn More page', () => {
     test.beforeEach(async ({ page }) => {
         await page.getByRole('button', { name: 'Learn More About Me' }).click()
     })
+
     test('get learn more link', async ({ page }) => {
         // Check for heading and images displayed
         await expect(page.getByText('Choose me as the perfect')).toBeVisible()
@@ -92,6 +92,7 @@ test.describe('Project page', () => {
     test.beforeEach(async ({ page }) => {
         await page.getByRole('link', { name: 'Projects' }).click()
     })
+    
     test('get project link', async ({ page }) => {
         await expect(page.getByText('PROJECTS', { exact: true })).toBeVisible()
         await expect(page.getByRole('tab', { name: 'Active' })).toBeEnabled()
